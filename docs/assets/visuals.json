@@ -1,0 +1,27 @@
+{
+  "palette": { "dark": "#0b2a28", "mid": "#134E4A", "soft": "#CCFBF1", "prompt": "#2DD4BF" },
+  "demo": {
+    "title": "rtl-fix: claude plugin test .",
+    "aria": "Terminal output: seven tests pass, zero fail",
+    "rows": [
+      { "t": 0, "text": "{b:$} claude plugin test ." },
+      { "t": 0.8, "text": "{g:(pass)} hebrew only gets an RLM" },
+      { "t": 1.3, "text": "{g:(pass)} english starting a hebrew line is isolated" },
+      { "t": 1.8, "text": "{g:(pass)} list marker stays first" },
+      { "t": 2.3, "text": "{g:(pass)} fence lines with hebrew get an RTL isolate" },
+      { "t": 2.8, "text": "{g:(pass)} inline code, urls and link targets are kept" },
+      null,
+      { "t": 3.4, "text": "{g:7 pass}  0 fail" }
+    ]
+  },
+  "cards": [
+    { "color": "#0F766E", "title": "Right direction", "icon": "check", "lines": ["Every line with Hebrew reads", "right to left, even when it", "opens with an English word."] },
+    { "color": "#2563EB", "title": "English in order", "icon": "bolt", "lines": ["Commands, names and numbers", "inside a Hebrew line keep", "their left-to-right order."] },
+    { "color": "#B45309", "title": "Display only", "icon": "shield", "lines": ["The stored message and what", "the model reads never change.", "Only the drawing does."] }
+  ],
+  "stats": [
+    { "n": "7", "label": "tests pass" },
+    { "n": "2", "label": "message hooks" },
+    { "n": "0", "label": "dependencies" }
+  ]
+}

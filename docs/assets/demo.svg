@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="258" viewBox="0 0 860 258" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" role="img" aria-label="Terminal output: seven tests pass, zero fail">
+  <style>.l{white-space:pre}@keyframes dot{0%,100%{opacity:1}50%{opacity:.35}}.dot{animation:dot 1.6s infinite}@keyframes k1{0%,5.00%{opacity:0}6.20%,92%{opacity:1}97%,100%{opacity:0}}.k1{animation:k1 16s infinite}@keyframes k2{0%,8.13%{opacity:0}9.32%,92%{opacity:1}97%,100%{opacity:0}}.k2{animation:k2 16s infinite}@keyframes k3{0%,11.25%{opacity:0}12.45%,92%{opacity:1}97%,100%{opacity:0}}.k3{animation:k3 16s infinite}@keyframes k4{0%,14.37%{opacity:0}15.57%,92%{opacity:1}97%,100%{opacity:0}}.k4{animation:k4 16s infinite}@keyframes k5{0%,17.50%{opacity:0}18.70%,92%{opacity:1}97%,100%{opacity:0}}.k5{animation:k5 16s infinite}@keyframes k7{0%,21.25%{opacity:0}22.45%,92%{opacity:1}97%,100%{opacity:0}}.k7{animation:k7 16s infinite}@media (prefers-reduced-motion:reduce){.l,.dot{animation:none!important;opacity:1}}</style>
+  <defs><linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#0b2a28"/><stop offset="1" stop-color="#134E4A"/></linearGradient></defs>
+  <rect width="860" height="258" rx="10" fill="#0d1117"/>
+  <path d="M0 10a10 10 0 0 1 10-10h840a10 10 0 0 1 10 10v24H0z" fill="url(#bar)"/>
+  <circle cx="20" cy="17" r="6" fill="#ff5f56"/><circle cx="40" cy="17" r="6" fill="#ffbd2e"/><circle cx="60" cy="17" r="6" fill="#27c93f"/>
+  <text x="430" y="22" text-anchor="middle" fill="#CCFBF1" font-size="12">rtl-fix: claude plugin test .</text>
+  <circle class="dot" cx="836" cy="17" r="5" fill="#2DD4BF"/>
+  <g fill="#c9d1d9">
+    <text class="l" x="24" y="66"><tspan fill="#4ade80" font-weight="bold">$</tspan> claude plugin test .</text>
+    <text class="l k1" x="24" y="90"><tspan fill="#3fb950" font-weight="bold">(pass)</tspan> hebrew only gets an RLM</text>
+    <text class="l k2" x="24" y="114"><tspan fill="#3fb950" font-weight="bold">(pass)</tspan> english starting a hebrew line is isolated</text>
+    <text class="l k3" x="24" y="138"><tspan fill="#3fb950" font-weight="bold">(pass)</tspan> list marker stays first</text>
+    <text class="l k4" x="24" y="162"><tspan fill="#3fb950" font-weight="bold">(pass)</tspan> fence lines with hebrew get an RTL isolate</text>
+    <text class="l k5" x="24" y="186"><tspan fill="#3fb950" font-weight="bold">(pass)</tspan> inline code, urls and link targets are kept</text>
+    <text class="l k7" x="24" y="234"><tspan fill="#3fb950" font-weight="bold">7 pass</tspan>  0 fail</text>
+  </g>
+</svg>

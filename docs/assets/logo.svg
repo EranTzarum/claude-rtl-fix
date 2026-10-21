@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="112" height="112" role="img" aria-label="rtl-fix logo: a text page with a right-to-left arrow">
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#CCFBF1"/>
+  <rect x="30" y="20" width="56" height="74" rx="8" fill="#fff" stroke="#134E4A" stroke-width="6"/>
+  <path d="M42 40h32M42 54h32M42 68h20" stroke="#134E4A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M110 96H70M84 82l-14 14 14 14" fill="none" stroke="#0F766E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
