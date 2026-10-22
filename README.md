@@ -11,7 +11,7 @@
 <p>
 <a href="#install"><img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code"></a>
 <a href="#install"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
-<a href="#how-it-works"><img src="https://img.shields.io/badge/11_tests-passing-0F766E?style=for-the-badge" alt="11 tests passing"></a>
+<a href="#how-it-works"><img src="https://img.shields.io/badge/8_tests-passing-0F766E?style=for-the-badge" alt="8 tests passing"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-134E4A?style=for-the-badge" alt="MIT license"></a>
 </p>
 
@@ -22,11 +22,11 @@
 | A Hebrew line that opens with English | The words and punctuation jump around | The whole line reads right to left |
 | `git status` inside a Hebrew sentence | Letters swap places | Stays `git status`, left to right |
 | A Hebrew line in a code block | Garbled | Right to left, English kept in order |
-| Typing `PR אחד` in the prompt box | `PR` jumps to the wrong side | Right order while you type; sent without marks |
+| Copying a fixed reply into your prompt | Invisible marks reach the model | Removed before sending |
 
 <p align="center"><img src="docs/assets/cards.svg" alt="Three benefits: right direction, English in order, display only" width="860"></p>
 
-<p align="center"><img src="docs/assets/stats.svg" alt="11 tests pass, 4 hooks, 0 dependencies" width="560"></p>
+<p align="center"><img src="docs/assets/stats.svg" alt="8 tests pass, 3 hooks, 0 dependencies" width="560"></p>
 
 ## Install
 
@@ -70,7 +70,7 @@ The line has a right-to-left base, and `git status` is an isolated left-to-right
 
 ## How it works
 
-The mod rewrites each Hebrew line before it is drawn, with an RTL base and isolated English runs. In the prompt box it marks Hebrew lines as you type and removes the marks before sending. Details, and what it does not cover: [docs/how-it-works.md](docs/how-it-works.md).
+The mod rewrites each Hebrew line before it is drawn, with an RTL base and isolated English runs. The desktop app draws the prompt box and your own message bubbles itself, so those are not covered. Details, and what it does not cover: [docs/how-it-works.md](docs/how-it-works.md).
 
 ## Develop
 

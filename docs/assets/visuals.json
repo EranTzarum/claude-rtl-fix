@@ -7,7 +7,7 @@
   },
   "demo": {
     "title": "rtl-fix: claude plugin test .",
-    "aria": "Terminal output: eleven tests pass, zero fail",
+    "aria": "Terminal output: eight tests pass, zero fail",
     "rows": [
       {
         "t": 0,
@@ -35,16 +35,12 @@
       },
       {
         "t": 3.3,
-        "text": "{g:(pass)} draft: a hebrew line gets an RLM, the cursor moves"
-      },
-      {
-        "t": 3.8,
         "text": "{g:(pass)} unmark removes every RLM and isolate"
       },
       null,
       {
-        "t": 4.4,
-        "text": "{g:11 pass}  0 fail"
+        "t": 3.9,
+        "text": "{g:8 pass}  0 fail"
       }
     ]
   },
@@ -74,19 +70,19 @@
       "title": "Clean prompts",
       "icon": "shield",
       "lines": [
-        "The prompt box shows Hebrew",
-        "in the right order, and the",
-        "model gets it without marks."
+        "Marks copied from a reply",
+        "are removed before sending.",
+        "The model reads plain text."
       ]
     }
   ],
   "stats": [
     {
-      "n": "11",
+      "n": "8",
       "label": "tests pass"
     },
     {
-      "n": "4",
+      "n": "3",
       "label": "hooks"
     },
     {
