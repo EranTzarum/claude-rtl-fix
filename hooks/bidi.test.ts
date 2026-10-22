@@ -44,3 +44,23 @@ test('unmark removes every RLM and isolate', () => {
   expect(unmarkDraft(`${RLM}אחד\n${RLM}PR`)).toBe('אחד\nPR')
   expect(unmarkDraft(`\u2067${LRI}PR ${PDI} אחד${PDI}`)).toBe('PR  אחד')
 })
+
+test('a chain of english steps is one LTR run, arrows and bold markers included', () => {
+  expect(fixBidi('בתפריט Authentication → Users → Add user → Send, ושלח')).toBe(
+    `${RLM}בתפריט ${LRI}Authentication → Users → Add user → Send${PDI}, ושלח`,
+  )
+  expect(fixBidi('בתפריט **Authentication** → **Users** עכשיו')).toBe(
+    `${RLM}בתפריט **${LRI}Authentication** → **Users${PDI}** עכשיו`,
+  )
+})
+
+test('numbers keep their order, brackets stay outside the run', () => {
+  expect(fixBidi('צעדים (10–12) שוב')).toBe(`${RLM}צעדים (${LRI}10–12${PDI}) שוב`)
+})
+
+test('a code line that opens with code stays LTR, one that opens with hebrew goes RTL', () => {
+  const t = '```\n<div dir="rtl"><h2>קוד הכניסה שלך</h2>\nהרץ את npm test\n```'
+  expect(fixBidi(t)).toBe(
+    `\`\`\`\n<div dir="rtl"><h2>קוד הכניסה שלך</h2>\n\u2067הרץ את ${LRI}npm test${PDI}${PDI}\n\`\`\``,
+  )
+})

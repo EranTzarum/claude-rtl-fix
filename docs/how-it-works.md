@@ -3,8 +3,8 @@
 The mod hooks `ui.render` for the `AssistantMessage` and `UserMessage` rows and rewrites the text before it is drawn. Per line that holds Hebrew:
 
 1. It puts a right-to-left mark (U+200F) after any list or heading marker.
-2. It wraps each run of English words, numbers and paths in a left-to-right isolate.
-3. In a code block it wraps the whole line in a right-to-left isolate instead.
+2. It wraps each run of English in a left-to-right isolate: from the first Latin letter or digit to the last one before Hebrew, so a chain like `Authentication → Users → Send` or a range like `10–12` stays one run.
+3. In a code block, a line that opens with Hebrew is wrapped in a right-to-left isolate. A line that opens with code (HTML, a command) is left as it is.
 
 Lines without Hebrew, link targets and bare URLs are left as written. Inline code is isolated whole.
 

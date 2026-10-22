@@ -4,19 +4,17 @@ const RLI = '\u2067'
 const PDI = '\u2069'
 
 const HEBREW = /[\u0590-\u05FF]/
+const FIRST_STRONG = /[A-Za-z\u0590-\u05FF]/
 const MARKER = /^(\s*(?:>\s*)*(?:#{1,6}\s+|[-*+]\s+|\d+[.)]\s+)?)/
 const FENCE = /^\s*(```|~~~)/
 // Spans left as written: link targets, bare URLs. Inline code is isolated whole.
 const PROTECTED = /\]\([^)\s]*\)|https?:\/\/\S+/
 const CODE = /`[^`\n]*`/
-const LATIN_RUN = /[A-Za-z0-9][\w.\-/:@#%+=&?~]*(?: [A-Za-z0-9][\w.\-/:@#%+=&?~]*)*/g
-const TRAILING_PUNCT = /[.:?\-/]+$/
+// From the first Latin letter or digit to the last one before Hebrew, so a chain like
+// `A → B → C` or `**A** / **B**` stays one left-to-right run and its arrows keep pointing forward
+const LATIN_RUN = /[A-Za-z0-9](?:[^\u0590-\u05FF\n]*[A-Za-z0-9])?/g
 
-const isolateLatin = (s: string) =>
-  s.replace(LATIN_RUN, run => {
-    const tail = TRAILING_PUNCT.exec(run)?.[0] ?? ''
-    return `${LRI}${run.slice(0, run.length - tail.length)}${PDI}${tail}`
-  })
+const isolateLatin = (s: string) => s.replace(LATIN_RUN, run => `${LRI}${run}${PDI}`)
 
 const fixSegment = (s: string): string => {
   const hit = [CODE, PROTECTED]
@@ -41,8 +39,12 @@ export const fixBidi = (text: string): string => {
         return line
       }
       if (!HEBREW.test(line)) return line
-      // code lines have no markdown: an RTL isolate forces the base, Latin runs stay in order
-      if (inFence) return RLI + isolateLatin(line) + PDI
+      if (inFence) {
+        // A code line that opens with Hebrew is a sentence: RTL, Latin runs kept in order.
+        // One that opens with code (HTML, a command) stays left to right; its Hebrew strings read fine there.
+        const isHebrewFirst = HEBREW.test(FIRST_STRONG.exec(line)![0])
+        return isHebrewFirst ? RLI + isolateLatin(line) + PDI : line
+      }
       // shortcut: table rows are left alone, a `|` row has no single base direction; revisit if tables garble
       if (/^\s*\|/.test(line)) return line
       const marker = MARKER.exec(line)![1]
