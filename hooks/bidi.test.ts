@@ -1,6 +1,6 @@
 import { expect, test } from 'claude-code/testing'
 
-import { fixBidi } from './bidi'
+import { fixBidi, markDraft, unmarkDraft } from './bidi'
 
 const RLM = '\u200F'
 const LRI = '\u2066'
@@ -38,4 +38,24 @@ test('inline code is isolated whole, urls and link targets are kept', () => {
   expect(fixBidi('ראה `a b` כאן')).toBe(`${RLM}ראה ${LRI}\`a b\`${PDI} כאן`)
   expect(fixBidi('ראה https://x.com/a כאן')).toBe(`${RLM}ראה https://x.com/a כאן`)
   expect(fixBidi('[אתר](https://x.com)')).toBe(`${RLM}[אתר](https://x.com)`)
+})
+
+test('draft: a hebrew line gets an RLM and the cursor moves past it', () => {
+  expect(markDraft('אחד PR', 6)).toEqual({ text: `${RLM}אחד PR`, cursor: 7 })
+  expect(markDraft(`${RLM}אחד PR`, 7)).toEqual({ text: `${RLM}אחד PR`, cursor: 7 })
+})
+
+test('draft: english lines stay, a line that lost its hebrew loses its RLM', () => {
+  expect(markDraft('hello', 5)).toEqual({ text: 'hello', cursor: 5 })
+  expect(markDraft(`${RLM}PR`, 3)).toEqual({ text: 'PR', cursor: 2 })
+})
+
+test('draft: only lines after the cursor do not move it', () => {
+  expect(markDraft('hi\nשלום', 2)).toEqual({ text: `hi\n${RLM}שלום`, cursor: 2 })
+  expect(markDraft('שלום\nhi', 7)).toEqual({ text: `${RLM}שלום\nhi`, cursor: 8 })
+})
+
+test('unmark removes every RLM and isolate', () => {
+  expect(unmarkDraft(`${RLM}אחד\n${RLM}PR`)).toBe('אחד\nPR')
+  expect(unmarkDraft(`⁧${LRI}PR ${PDI} אחד${PDI}`)).toBe('PR  אחד')
 })

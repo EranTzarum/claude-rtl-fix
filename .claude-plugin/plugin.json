@@ -1,1 +1,1 @@
-{ "name": "rtl-fix", "version": "0.1.0", "description": "Fixes Hebrew/English bidi text direction in transcript messages" }
+{ "name": "rtl-fix", "version": "0.2.0", "description": "Fixes Hebrew/English bidi text direction in transcript messages and the prompt box" }

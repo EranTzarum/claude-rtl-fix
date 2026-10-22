@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="96" viewBox="0 0 940 96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="7 tests pass, 2 message hooks, 0 dependencies">
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="96" viewBox="0 0 940 96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="11 tests pass, 4 hooks, 0 dependencies">
   <g transform="translate(0 0)">
     <rect width="300" height="96" rx="12" fill="#0d1117" stroke="#4ade80" stroke-opacity=".45"/>
     <rect x="0" y="90" width="300" height="6" rx="3" fill="#4ade80" opacity=".9"/>
-    <text x="150" y="48" text-anchor="middle" font-size="38" font-weight="800" fill="#4ade80">7</text>
+    <text x="150" y="48" text-anchor="middle" font-size="38" font-weight="800" fill="#4ade80">11</text>
     <text x="150" y="74" text-anchor="middle" font-size="15" fill="#8b949e">tests pass</text>
   </g>
   <g transform="translate(320 0)">
     <rect width="300" height="96" rx="12" fill="#0d1117" stroke="#22d3ee" stroke-opacity=".45"/>
     <rect x="0" y="90" width="300" height="6" rx="3" fill="#22d3ee" opacity=".9"/>
-    <text x="150" y="48" text-anchor="middle" font-size="38" font-weight="800" fill="#22d3ee">2</text>
-    <text x="150" y="74" text-anchor="middle" font-size="15" fill="#8b949e">message hooks</text>
+    <text x="150" y="48" text-anchor="middle" font-size="38" font-weight="800" fill="#22d3ee">4</text>
+    <text x="150" y="74" text-anchor="middle" font-size="15" fill="#8b949e">hooks</text>
   </g>
   <g transform="translate(640 0)">
     <rect width="300" height="96" rx="12" fill="#0d1117" stroke="#FBBF24" stroke-opacity=".45"/>
