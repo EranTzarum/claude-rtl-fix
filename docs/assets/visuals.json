@@ -7,7 +7,7 @@
   },
   "demo": {
     "title": "rtl-fix: claude plugin test .",
-    "aria": "Terminal output: eleven tests pass, zero fail",
+    "aria": "Terminal output: twelve tests pass, zero fail",
     "rows": [
       {
         "t": 0,
@@ -41,10 +41,14 @@
         "t": 3.8,
         "text": "{g:(pass)} a chain of english steps is one LTR run"
       },
+      {
+        "t": 4.2,
+        "text": "{g:(pass)} a chain with ← arrows reads right to left"
+      },
       null,
       {
-        "t": 4.4,
-        "text": "{g:11 pass}  0 fail"
+        "t": 4.8,
+        "text": "{g:12 pass}  0 fail"
       }
     ]
   },
@@ -82,7 +86,7 @@
   ],
   "stats": [
     {
-      "n": "11",
+      "n": "12",
       "label": "tests pass"
     },
     {

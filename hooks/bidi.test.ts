@@ -64,3 +64,10 @@ test('a code line that opens with code stays LTR, one that opens with hebrew goe
     `\`\`\`\n<div dir="rtl"><h2>קוד הכניסה שלך</h2>\n\u2067הרץ את ${LRI}npm test${PDI}${PDI}\n\`\`\``,
   )
 })
+
+test('a chain with ← arrows reads right to left: each item is its own run', () => {
+  expect(fixBidi('ב-developer.apple.com ← Certificates, IDs & Profiles ← **Services** בתפריט')).toBe(
+    `${RLM}ב-${LRI}developer.apple.com${PDI} ← ${LRI}Certificates, IDs & Profiles${PDI} ← **${LRI}Services${PDI}** בתפריט`,
+  )
+  expect(fixBidi('**Next** ← **Register** ואז')).toBe(`${RLM}**${LRI}Next${PDI}** ← **${LRI}Register${PDI}** ואז`)
+})

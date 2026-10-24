@@ -11,8 +11,9 @@ const FENCE = /^\s*(```|~~~)/
 const PROTECTED = /\]\([^)\s]*\)|https?:\/\/\S+/
 const CODE = /`[^`\n]*`/
 // From the first Latin letter or digit to the last one before Hebrew, so a chain like
-// `A → B → C` or `**A** / **B**` stays one left-to-right run and its arrows keep pointing forward
-const LATIN_RUN = /[A-Za-z0-9](?:[^\u0590-\u05FF\n]*[A-Za-z0-9])?/g
+// `A → B → C` or `**A** / **B**` stays one left-to-right run and its arrows keep pointing forward.
+// A `←` ends a run: `A ← B ← C` is written to be read right to left, so each item is its own run
+const LATIN_RUN = /[A-Za-z0-9](?:[^\u0590-\u05FF\n←]*[A-Za-z0-9])?/g
 
 const isolateLatin = (s: string) => s.replace(LATIN_RUN, run => `${LRI}${run}${PDI}`)
 

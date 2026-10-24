@@ -11,7 +11,7 @@
 <p>
 <a href="#install"><img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code"></a>
 <a href="#install"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
-<a href="#how-it-works"><img src="https://img.shields.io/badge/11_tests-passing-0F766E?style=for-the-badge" alt="11 tests passing"></a>
+<a href="#how-it-works"><img src="https://img.shields.io/badge/12_tests-passing-0F766E?style=for-the-badge" alt="12 tests passing"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-134E4A?style=for-the-badge" alt="MIT license"></a>
 </p>
 
@@ -23,11 +23,12 @@
 | `git status` inside a Hebrew sentence | Letters swap places | Stays `git status`, left to right |
 | A Hebrew line in a code block | Garbled | Right to left, English kept in order |
 | Steps like `Authentication → Users → Send` in a Hebrew line | Arrows point backwards | One left-to-right run, arrows point forward |
+| Steps like `Services ← Profiles ← developer.apple.com` | Items swap places | Read right to left, each item kept whole |
 | Copying a fixed reply into your prompt | Invisible marks reach the model | Removed before sending |
 
 <p align="center"><img src="docs/assets/cards.svg" alt="Three benefits: right direction, English in order, display only" width="860"></p>
 
-<p align="center"><img src="docs/assets/stats.svg" alt="11 tests pass, 3 hooks, 0 dependencies" width="560"></p>
+<p align="center"><img src="docs/assets/stats.svg" alt="12 tests pass, 3 hooks, 0 dependencies" width="560"></p>
 
 ## Install
 
